@@ -13,5 +13,8 @@ def Recipes(request):
     return render(request,'Recipes.html')
 
 def Signup(request):
+    if request.method == "POST":
+        Username = request.POST.get('Username')
+        Password = request.POST.get('Password')
     return render(request,'Signup.html')
 
