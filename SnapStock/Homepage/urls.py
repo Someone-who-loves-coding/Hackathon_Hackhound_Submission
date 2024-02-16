@@ -7,5 +7,6 @@ urlpatterns = [
     path('',views.Index),
     path('Home/',views.Home),
     path('Recipes/',views.Recipes),
-    path('Signup/',views.SignUp)
+    path('Signup/',views.SignUp),
+    path('Login/',views.Login)
 ]

@@ -1,3 +1,4 @@
+
 {% load static %}
 <!DOCTYPE html>
 <!-- Created By CodingLab - www.codinglabweb.com -->
@@ -14,8 +15,8 @@
 <body class="login-body">
   <div class="login-container">
     <div class="login-wrapper">
-      <div class="login-title"><span>SignUp Form</span></div>
-      <form class="login-form" method="post" action="/Signup/">
+      <div class="login-title"><span>Login</span></div>
+      <form class="login-form" method="post" action="/Login/">
         {% csrf_token %}
         <div class="login-row">
           <i class="fas fa-user"></i>
@@ -28,9 +29,9 @@
           <input name = "Password" type="Password" placeholder="Password" required>
         </div>
         <div class="login-row login-button">
-          <input type="submit" value="Signup">
+          <input type="submit" value="Login">
         </div>
-        <div class="signup-link">Already a member? <a href="/">Signup now</a></div>
+        <div class="signup-link">Not a member? <a href="/Signup/">Sign Up now</a></div>
       </form>
     </div>
   </div>

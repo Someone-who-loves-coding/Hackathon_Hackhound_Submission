@@ -1,5 +1,5 @@
 from django.contrib import admin
-from Homepage.models import Signup,Ingredients
+from Homepage.models import Users,Ingredients
 
-admin.site.register(Signup)
+admin.site.register(Users)
 admin.site.register(Ingredients)
