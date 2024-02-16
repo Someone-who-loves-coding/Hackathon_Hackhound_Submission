@@ -70,8 +70,7 @@
 <div class="container">
     <h1 class="heading-primary">Recipe Ingredients</h1>
     <h2 class="heading-secondary">Add Ingredients</h2>
-    <form class="form-container" id="ingredient-form" action="/Home/" method="post">
-        {%csrf_token%}
+    <form class="form-container" id="ingredient-form" action="#" method="post">
         <label class="form-label" for="ingredient-title">Title:</label>
         <input class="form-input" type="text" id="ingredient-title" name="title" required>
         <label class="form-label" for="expiry-date">Expiry Date:</label>
@@ -79,12 +78,15 @@
         <input class="form-submit" type="submit" value="Add Ingredient">
     </form>
     <h2 class="heading-secondary">Ingredients you have</h2>
-    <ul class="ingredient-list" id="ingredient-list">
-        <!-- Ingredients will be added dynamically here -->
+    <ul class="ingredient-list">
+        <!-- Display ingredients from the server -->
+        {% for ingredient in ingredients %}
+        <li class="ingredient-item">{{ ingredient.title }} (Expiry Date: {{ ingredient.date }})</li>
+        {% endfor %}
     </ul>
 </div>
 
-{% comment %} <script>
+<!-- <script>
     // Fetch ingredients from the backend
     function fetchIngredients() {
         fetch('backend_url')
@@ -122,7 +124,7 @@
 
     // Initial fetch of ingredients
     fetchIngredients();
-</script> {% endcomment %}
+</script> -->
 
 </body>
 </html>

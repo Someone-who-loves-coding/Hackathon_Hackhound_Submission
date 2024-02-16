@@ -11,7 +11,12 @@ def Home(request):
         Expiry_date = request.POST.get('expiry_date')
         ingredients = Ingredients(Title = title, Date=Expiry_date)
         ingredients.save()
-    return render(request,'Home.html')
+    ingredients = Ingredients.objects.all()
+    ans = []
+    for item in ingredients:
+        ans.append({"title":item.Title, "date":item.Date})
+    print("ing : ", ans)
+    return render(request,'Home.html', {'ingredients': ans})
 
 def Recipes(request):
     context = {
