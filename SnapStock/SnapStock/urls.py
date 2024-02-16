@@ -4,5 +4,5 @@ from Homepage import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.Home)
+    path('',views.Home, name= 'Homepage')
 ]
