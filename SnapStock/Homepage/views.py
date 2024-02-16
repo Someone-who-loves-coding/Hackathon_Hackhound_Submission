@@ -1,5 +1,14 @@
-from django.shortcuts import render,HttpResponse
+from django.shortcuts import render
+
+def Index(request):
+    return render(request,'Index.html')
 
 def Home(request):
-    return HttpResponse("Hello World")
+    return render(request,'Home.html')
+
+def Recipes(request):
+    return render(request,'Recipes.html')
+
+def Signup(request):
+    return render(request,'Signup.html')
 
