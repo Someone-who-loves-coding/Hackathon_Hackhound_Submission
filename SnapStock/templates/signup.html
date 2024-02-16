@@ -15,14 +15,17 @@
   <div class="login-container">
     <div class="login-wrapper">
       <div class="login-title"><span>SignUp Form</span></div>
-      <form class="login-form" action="#">
+      <form class="login-form" method="post" action="/Signup/">
+        {% csrf_token %}
         <div class="login-row">
           <i class="fas fa-user"></i>
-          <input type="text" placeholder="Email or Phone" required>
+          <label for="Username"></label>
+          <input name = "Username" type="Username" placeholder="Email or Phone" required>
         </div>
         <div class="login-row">
           <i class="fas fa-lock"></i>
-          <input type="password" placeholder="Password" required>
+          <label for="Password"></label>
+          <input name = "Password" type="Password" placeholder="Password" required>
         </div>
         <div class="login-pass"><a href="#">Forgot password?</a></div>
         <div class="login-row login-button">
