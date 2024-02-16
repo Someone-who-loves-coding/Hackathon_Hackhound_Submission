@@ -1,21 +1,9 @@
-from django.shortcuts import render,redirect
-from Homepage.models import Users,Ingredients
-from django.contrib.auth import authenticate
-from django.contrib.auth.models import User
+from django.shortcuts import render
+from Homepage.models import Signup,Ingredients
+from django.contrib.messages import constants as messages
 
 def Index(request):
     return render(request,'Index.html')
-
-def Login(request):
-    if request.method == "POST":
-        username_ = request.POST.get('Username')
-        password_ = request.POST.get('Password')
-        user = authenticate(username = username_, password = password_)
-        if user is not None:
-            redirect("/Signup")
-        else :
-            return render(request,'Login.html')
-    return render(request,'Login.html')
 
 def Home(request):
     if request.method == "POST":
@@ -23,8 +11,12 @@ def Home(request):
         Expiry_date = request.POST.get('expiry_date')
         ingredients = Ingredients(Title = title, Date=Expiry_date)
         ingredients.save()
-        Tingredients = Ingredients.objects.all()
-    return render(request,'Home.html', {'ingredients': Tingredients})
+    ingredients = Ingredients.objects.all()
+    ans = []
+    for item in ingredients:
+        ans.append({"title":item.Title, "date":item.Date})
+    print("ing : ", ans)
+    return render(request,'Home.html', {'ingredients': ans})
 
 def Recipes(request):
     context = {
@@ -34,11 +26,10 @@ def Recipes(request):
 
 def SignUp(request):
     if request.method == "POST":
-        username_ = request.POST.get('Username')
-        password_ = request.POST.get('Password')
-        # signup = Users(Username = username_, Password = password_)
-        user = User.objects.create_user(username = username_, password = password_)
-        user.save()
-        # signup.save()
+        username = request.POST.get('Username')
+        password = request.POST.get('Password')
+        signup = Signup(Username = username, Password = password)
+        signup.save()
+        # messages.success(request, "Successful Signup")
     return render(request,'Signup.html')
 
