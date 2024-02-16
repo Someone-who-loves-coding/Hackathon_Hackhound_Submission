@@ -1,11 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recipe Ingredients</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 0 20px;
+    }
+    .heading-primary {
+        text-align: center;
+    }
+    .heading-secondary {
+        text-align: center;
+    }
+    .form-container {
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+    }
+    .form-label {
+        display: block;
+        margin-bottom: 10px;
+    }
+    .form-input {
+        width: calc(100% - 20px);
+        padding: 8px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    .form-submit {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    .form-submit:hover {
+        background-color: #45a049;
+    }
+    .ingredient-list {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+    .ingredient-item {
+        background-color: #f9f9f9;
+        padding: 10px;
+        border-radius: 4px;
+        margin-bottom: 5px;
+    }
+</style>
 </head>
 <body>
-    This is the home page
+
+<div class="container">
+    <h1 class="heading-primary">Recipe Ingredients</h1>
+    <h2 class="heading-secondary">Add Ingredients</h2>
+    <form class="form-container" id="ingredient-form" action="#" method="post">
+        <label class="form-label" for="ingredient-title">Title:</label>
+        <input class="form-input" type="text" id="ingredient-title" name="title" required>
+        <label class="form-label" for="expiry-date">Expiry Date:</label>
+        <input class="form-input" type="date" id="expiry-date" name="expiry_date" required>
+        <input class="form-submit" type="submit" value="Add Ingredient">
+    </form>
+    <h2 class="heading-secondary">Ingredients you have</h2>
+    <ul class="ingredient-list" id="ingredient-list">
+        <!-- Ingredients will be added dynamically here -->
+    </ul>
+</div>
+
+<script>
+    // Fetch ingredients from the backend
+    function fetchIngredients() {
+        fetch('backend_url')
+            .then(response => response.json())
+            .then(data => {
+                const ingredientList = document.getElementById('ingredient-list');
+                ingredientList.innerHTML = '';
+                data.forEach(ingredient => {
+                    const listItem = document.createElement('li');
+                    listItem.classList.add('ingredient-item');
+                    listItem.textContent = `${ingredient.title} (Expiry Date: ${ingredient.expiry_date})`;
+                    ingredientList.appendChild(listItem);
+                });
+            })
+            .catch(error => console.error('Error fetching ingredients:', error));
+    }
+
+    // Add event listener to form submission
+    document.getElementById('ingredient-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form submission
+
+        const formData = new FormData(this);
+        fetch('backend_url', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            if (response.ok) {
+                fetchIngredients(); // Refresh ingredient list after adding a new ingredient
+                document.getElementById('ingredient-form').reset(); // Reset form fields
+            }
+        })
+        .catch(error => console.error('Error adding ingredient:', error));
+    });
+
+    // Initial fetch of ingredients
+    fetchIngredients();
+</script>
+
 </body>
 </html>
