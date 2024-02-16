@@ -30,6 +30,6 @@ def SignUp(request):
         password = request.POST.get('Password')
         signup = Signup(Username = username, Password = password)
         signup.save()
-        messages.success(request, "Successful Signup")
+        # messages.success(request, "Successful Signup")
     return render(request,'Signup.html')
 

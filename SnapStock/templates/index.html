@@ -1,18 +1,259 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body style="background-color: #561c24;">
-    <div style="text-align: center; color: white;">
-        <h1 style="font-size: 300%;">
-            SNAPSTOCK
-        </h1>
-        <h1>
-            Your Grocery Hero
-        </h1>
-    </div>
-</body>
-</html>
+{% load static %}
+
+<DOCTYPE html>
+
+    <html>
+    
+        <head>
+    
+        <meta charset="utf-8">
+    
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <!--==Title==================================-->
+        <title>
+    
+            Chitkara Grocery Store
+    
+        </title>
+    
+        <!--==Stylesheet=============================-->
+        <link rel="stylesheet" type="text/css" href="{% static "Home Page CSS.css" %}">
+  
+        <!--==Fav-icon===============================-->
+        <link rel="shortcut icon" href="images/fav-icon.png"/>
+    
+        <!--==Using-Font-Awesome=====================-->
+        <script src="https://kit.fontawesome.com/5471644867.js" crossorigin="anonymous"></script>
+    
+        <script src = 'Home Page JS.js' defer></script>
+            
+       <link rel="shortcut icon" type="image/jpg" href="C:\Users\hp\Desktop\College\First Semester\Introduction To Web Technologies\Notepad ++ Files\Project\favicon.ico"/>
+    
+        </head>
+    
+        <body>
+    
+            <!--==Navigation================================-->
+            <nav class="navigation">
+    
+                <!--logo-------->
+                <a href="#" class="logo">
+    
+                    <span>Snap</span>Stock
+    
+                </a>
+    
+                <!--menu-btn---->
+                <input type="checkbox" class="menu-btn" id="menu-btn">
+    
+                <label for="menu-btn" class="menu-icon">
+    
+                    <span class="nav-icon"></span>
+    
+                </label>
+    
+                <!--menu-------->
+                <ul class="menu">
+    
+                    <li>
+                        <a href="Home Page HTML.html" class="active">
+                            
+                            Home
+    
+                        </a>
+                    
+                    </li>
+                
+                    <li>
+                        
+                        <a href="/Signup">
+                                
+                            Sign&nbsp;up
+                            
+                        </a>
+                        
+                    </li>
+    
+                    
+                    <li>
+                        
+                        <a href="/Login">
+                            
+                            Login
+                        
+                        </a>
+                    
+                    </li>
+    
+                    </ul>
+    
+    
+            </nav>
+    
+            <!--nav-end--------------------->
+            <!--==Search-banner=======================================-->
+            <section id="search-banner">
+    
+                <!--bg--------->
+                <img alt="bg" class="bg-1" src="https://i.imgur.com/h8pXo1s.png">
+    
+                <img alt="bg" class="bg-1_rev" src="https://i.imgur.com/h8pXo1s.png">
+    
+                <img alt="bg-2" class="bg-2" src="https://i.imgur.com/2smuQIz.png">
+    
+                <!--text------->
+                <div class="search-banner-text">
+    
+                    <h1>
+                        
+                        Add Ingredients
+                    
+                    </h1>
+    
+                    <strong>
+                        
+                        #Your Recipes
+                    
+                    </strong>
+    
+    
+                    <br>
+                    <br>
+    
+                    <h3>
+    
+                        <a style = 'color: #40aa54'>
+    
+                            Explore the features that make SnapStock the best choice for your Grocery Management.
+    
+                        </a>
+    
+                    </h3>
+    
+                </div>
+    
+            </section>
+    
+            <!--==category=========================================-->
+            <section id="category">
+    
+                <!--heading---------------->
+                <div class="category-heading">
+    
+                    <h2>
+                        
+                        Key Features
+                    
+                    </h2>
+    
+                    <span>
+                        
+                        All
+                    
+                    </span>
+    
+                </div>
+    
+                <!--box-container---------->
+                <div class="category-container">
+    
+                    <!--box---------------->
+                    <a class="category-box" href = 'Fruits Category Page HTML.html'>
+                        <img alt="Fruits and Vegetables" src="https://i.imgur.com/lvk68rp.png">
+                        <span>Add <br> Items</span>
+                    </a>
+                    <!--box---------------->
+                    <a class="category-box" href = 'Medicine Category Page HTML.html'>
+                        <img src="{% static '/images/four.svg' %}" alt="My image">
+                        <span>Recipies</span>
+                    </a>
+                    <!--box---------------->
+                    <a class="category-box" href = 'Office Category Page HTML.html'>
+                        <img src="{% static '/images/one.svg' %}" alt="My image">
+                        <span>Reminders</span>
+                    </a>
+                    <!--box---------------->
+                    <a class="category-box" href = 'Beauty Category Page HTML.html'>
+                        <img src="{% static '/images/three.svg' %}" alt="My image">
+                        <span>Friendly UI</span>
+                    </a>
+                    <!--box---------------->
+                    <a class="category-box" href = 'Gardening Category Page HTML.html'>
+                        <img src="{% static '/images/five.svg' %}" alt="My image">
+                        <span>Anywhere</span>
+                    </a>
+                </div>
+                
+            </section>
+            <!--==Clients===============================================-->
+            <section id="clients">
+                <!--heading---------------->
+                <div class="client-heading">
+                    <h3>About SnapStock</h3>
+                </div>
+                <!--box-container---------->
+                <div class="client-box-container">
+                    <!--box------------->
+                    <div class="client-box">
+                        <!--==profile===-->
+                        <!--==Rating======-->
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <!--==comments===-->
+                        <p>Discover the features that make Grocery Management the ultimate tool for your grocery needs.</Str></p>
+                    </div>
+                    <!--box------------->
+                    <div class="client-box">
+                        <!--==profile===-->
+                        <!--==Rating======-->
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <!--==comments===-->
+                        <p>Don't have time to check on expiring dates? No worries - with Grocery Management, we've got you covered! Our innovative Expiry Date Reminders feature ensures you never miss a beat when it comes to the freshness of your groceries.</p>
+                    </div>
+                    <!--box------------->
+                    <div class="client-box">
+                        <!--==profile===-->
+                        <!--==Rating======-->
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <!--==comments===-->
+                        <p>Effortless inclusion and removal of elements, ensuring user-friendly simplicity and efficiency.</p>
+                    </div>
+                </div>
+            </section>
+            <!--client-section-end---------->
+            <!--logo-section-end--------------------->
+            <!--download-app-section-end------------------------->
+            <!--==Footer=============================================-->
+            <footer>
+                <div class="footer-container">
+                    <!--logo-container------>
+                    <div class="footer-logo">
+                        <a href="file:///C:/Users/RAGHAV/Desktop/Coding/Grocery/Logo.png"><span>S</span>S</a>
+                        <!--social----->
+                    </div>
+                    <!--links------------------------->
+                <!--links-------------------------->
+                <br><p style="color: aliceblue;">Copyright ©2024 Grocery Management | All Rights Reserved</p>
+                </div>
+            </footer>
+        </body>
+    </html>
+    
